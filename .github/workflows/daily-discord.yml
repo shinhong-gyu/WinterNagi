@@ -1,0 +1,46 @@
+name: Daily Discord Summary
+
+on:
+  schedule:
+    # Every day at 00:17 Korea time; summarizes the preceding calendar day.
+    - cron: "17 0 * * *"
+      timezone: "Asia/Seoul"
+  workflow_dispatch:
+    inputs:
+      report_date:
+        description: "집계 날짜 YYYY-MM-DD (비워두면 한국 시간 어제)"
+        required: false
+        type: string
+      dry_run:
+        description: "미리보기만 만들기 (디스코드 발송 안 함)"
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+
+# Serializes reports. A deliberate rerun may send a second copy; see setup guide.
+concurrency:
+  group: daily-discord-summary
+  cancel-in-progress: false
+
+jobs:
+  report:
+    # Manual execution must also use the repository's default branch.
+    if: github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Check out report files
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Summarize repository pushes
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          REPORT_DATE: ${{ inputs.report_date || '' }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && 'true' || 'false' }}
+        run: python3 .github/scripts/daily_discord.py --config .github/study-members.json
