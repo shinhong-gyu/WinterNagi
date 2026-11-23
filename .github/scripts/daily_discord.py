@@ -231,8 +231,6 @@ def render_message(config, activities, day, repository):
         f"한국 시간 00:00–24:00 · {scope}", "",
         "**✅ Push 기록 있는 멤버**", *(present or ["• 없음"]), "",
         "**🌙 Push 기록 없는 멤버**", *(absent or ["• 없음"]), "",
-        "자유롭게 참여하는 스터디의 기록 공유입니다.",
-        f"집계 활동: {kinds} · 기록이 없다는 것은 문제를 풀지 않았다는 뜻은 아닙니다.",
     ])
     if len(content.encode("utf-16-le")) // 2 > 2000:
         raise ReportError("메시지가 Discord의 2,000자 한도를 초과합니다. 이름을 줄여 주세요.")
