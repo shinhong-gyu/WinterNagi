@@ -1,0 +1,43 @@
+{
+  "branch": "main",
+  "activity_types": ["push", "force_push"],
+  "members": [
+    {
+      "github": "shinhong-gyu",
+      "name": "홍규"
+    }
+  ]
+}
+
+{
+  "branch": "main",
+  "activity_types": ["push", "force_push"],
+  "members": [
+    {
+      "github": "flatroad",
+      "name": "락햄"
+    }
+  ]
+}
+
+{
+  "branch": "main",
+  "activity_types": ["push", "force_push"],
+  "members": [
+    {
+      "github": "nimnoeyheel",
+      "name": "마니"
+    }
+  ]
+}
+
+{
+  "branch": "main",
+  "activity_types": ["push", "force_push"],
+  "members": [
+    {
+      "github": "yagae12",
+      "name": "경짱"
+    }
+  ]
+}
