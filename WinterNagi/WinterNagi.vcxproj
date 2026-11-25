@@ -21,7 +21,6 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ReadOnlyProject>true</ReadOnlyProject>
     <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
     <ProjectGuid>{f66862b4-410c-400a-aebb-04242fdecf4c}</ProjectGuid>
     <RootNamespace>WinterNagi</RootNamespace>
@@ -80,6 +79,7 @@
   <ItemDefinitionGroup>
     <ClCompile>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -135,12 +135,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="$(IntDir)StudyMain.cpp">
-      <Visible>false</Visible>
-    </ClCompile>
-    <ClCompile Include="*\*.cpp;BaekJoon\*\*.cpp" Exclude="Debug\**;Release\**;x64\**;Win32\**">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
+    <ClCompile Include="BaekJoon\1025\SHK.cpp" />
+    <ClCompile Include="BaekJoon\2491\ragi.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
