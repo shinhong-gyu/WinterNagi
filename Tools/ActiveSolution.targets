@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <UsingTask TaskName="FindStudyDocument" TaskFactory="CodeTaskFactory"
+             AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+    <ParameterGroup>
+      <SolutionFile ParameterType="System.String" Required="true" />
+      <SourceFile ParameterType="System.String" Output="true" />
+    </ParameterGroup>
+    <Task>
+      <Reference Include="Microsoft.CSharp" />
+      <Code Type="Class" Language="cs" Source="$(MSBuildThisFileDirectory)FindStudyDocument.cs" />
+    </Task>
+  </UsingTask>
+
+  <Target Name="SelectStudyDocument" BeforeTargets="PrepareForBuild"
+          Condition="'$(DesignTimeBuild)' != 'true'">
+    <FindStudyDocument SolutionFile="$(SolutionPath)" Condition="'$(StudySource)' == '' and '$(BuildingInsideVisualStudio)' == 'true'">
+      <Output TaskParameter="SourceFile" PropertyName="StudySource" />
+    </FindStudyDocument>
+    <Error Condition="'$(StudySource)' == ''" Text="Open a problem .cpp in Visual Studio, or pass /p:StudySource=path on the MSBuild command line." />
+    <PropertyGroup>
+      <StudyFullPath>$([MSBuild]::NormalizePath('$(MSBuildProjectDirectory)', '$(StudySource)'))</StudyFullPath>
+      <StudyRelativePath>$([MSBuild]::MakeRelative('$(MSBuildProjectDirectory)', '$(StudyFullPath)'))</StudyRelativePath>
+    </PropertyGroup>
+    <Error Condition="!$([System.Text.RegularExpressions.Regex]::IsMatch('$(StudyRelativePath)', '^(?i:BaekJoon[\\/])?[0-9]+[\\/][^\\/]+\.[cC][pP][pP]$')) Or !Exists('$(StudyFullPath)')"
+           Text="Select a .cpp inside a problem-number folder and start again. Active document: $(StudyFullPath)" />
+    <MakeDir Directories="$(IntDir)" />
+    <WriteLinesToFile File="$(IntDir)StudyMain.cpp" Lines="#include &quot;$(StudyFullPath)&quot;" Encoding="utf-8" Overwrite="true" WriteOnlyWhenDifferent="true" />
+    <Message Text="WinterNagi: $(StudyRelativePath)" Importance="high" />
+  </Target>
+</Project>

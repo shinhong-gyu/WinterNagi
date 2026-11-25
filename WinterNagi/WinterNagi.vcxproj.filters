@@ -14,4 +14,15 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <Filter Include="BaekJoon" />
+    <Filter Include="BaekJoon\1025" />
+    <Filter Include="BaekJoon\2491" />
+    <ClCompile Include="BaekJoon\2491\ragi.cpp">
+      <Filter>BaekJoon\2491</Filter>
+    </ClCompile>
+    <ClCompile Include="BaekJoon\1025\SHK.cpp">
+      <Filter>BaekJoon\1025</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>

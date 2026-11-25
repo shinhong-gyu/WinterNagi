@@ -68,3 +68,10 @@ Testing/
 .cache/
 
 .vs/
+Debug/
+Release/
+x64/
+Win32/
+*.vcxproj.user
+
+.md
