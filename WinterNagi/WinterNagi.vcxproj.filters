@@ -29,4 +29,7 @@
       <Filter>BaekJoon\1025</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="BaekJoon\1052\SHK.cpp" />
+  </ItemGroup>
 </Project>
