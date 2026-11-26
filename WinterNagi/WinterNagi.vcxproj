@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClCompile Include="BaekJoon\1025\SHK.cpp" />
     <ClCompile Include="BaekJoon\2491\ragi.cpp" />
+    <ClCompile Include="BaekJoon\1057\ragi.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

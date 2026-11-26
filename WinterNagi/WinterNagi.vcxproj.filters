@@ -18,8 +18,12 @@
     <Filter Include="BaekJoon" />
     <Filter Include="BaekJoon\1025" />
     <Filter Include="BaekJoon\2491" />
+    <Filter Include="BaekJoon\1057" />
     <ClCompile Include="BaekJoon\2491\ragi.cpp">
       <Filter>BaekJoon\2491</Filter>
+    </ClCompile>
+    <ClCompile Include="BaekJoon\1057\ragi.cpp">
+      <Filter>BaekJoon\1057</Filter>
     </ClCompile>
     <ClCompile Include="BaekJoon\1025\SHK.cpp">
       <Filter>BaekJoon\1025</Filter>
