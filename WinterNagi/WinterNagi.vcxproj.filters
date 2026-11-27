@@ -32,4 +32,9 @@
   <ItemGroup>
     <None Include="BaekJoon\1052\SHK.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BaekJoon\1062\SHK.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
 </Project>
