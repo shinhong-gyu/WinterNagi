@@ -135,6 +135,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BaekJoon\1024\SHK.cpp" />
     <ClCompile Include="BaekJoon\1025\SHK.cpp" />
     <ClCompile Include="BaekJoon\1062\SHK.cpp" />
     <ClCompile Include="BaekJoon\2491\ragi.cpp" />

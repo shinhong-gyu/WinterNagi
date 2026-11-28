@@ -36,5 +36,8 @@
     <ClCompile Include="BaekJoon\1062\SHK.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="BaekJoon\1024\SHK.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
